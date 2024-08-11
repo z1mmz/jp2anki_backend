@@ -153,6 +153,8 @@ def jankify(title,text):
     # return fpath
 
 
+# The `if __name__ == '__main__':` block in Python is a common idiom used to control the execution of
+# code when a script is run as the main program. Here's what it does:
 if __name__ == '__main__':
     with open(sys.argv[1], 'r') as file:
         print(sys.argv[1])
