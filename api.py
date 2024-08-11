@@ -59,7 +59,7 @@ def task_result(id: str) -> dict[str, object]:
     return {
         "ready": ready,
         "successful": result.successful() if ready else None,
-        "value": result.result if ready else None,
+        "value": result.get() if ready else None,
     }
 @app.route("/")
 def hello_world():
