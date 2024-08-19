@@ -1,5 +1,11 @@
 
-dyNET==2.1.2
+flask
+flask_cors
+celery
+redis
+genanki
+Jamdict
+jamdict-data
 nagisa==0.2.7
 numpy==1.26.4
 redis==5.0.4

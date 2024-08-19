@@ -26,8 +26,8 @@ def celery_init_app(app: Flask) -> Celery:
 app = Flask(__name__)
 app.config.from_mapping(
     CELERY=dict(
-        broker_url="redis://127.0.0.1",
-        result_backend="redis://127.0.0.1",
+        broker_url="redis://redis:6379/0",
+        result_backend="redis://redis:6379/0",
         task_ignore_result=True,
     ),
 )
@@ -61,7 +61,7 @@ def task_result(id: str) -> dict[str, object]:
         "successful": result.successful() if ready else None,
         "value": result.get() if ready else None,
     }
-@app.route("/")
+@app.route("/test")
 def hello_world():
     return "<p>Hello, World!</p>"
 
@@ -72,4 +72,5 @@ def ankify():
     result = anki_task.delay(rj)
     return {"result_id": result.id}
 
-
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
